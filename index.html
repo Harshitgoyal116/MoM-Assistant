@@ -1,36 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ================= BASIC META ================= -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>MOM Assistant Pro</title>
+  <meta
+    name="description"
+    content="Enterprise-grade Minutes of Meeting (MOM) generator that captures audio, transcribes multilingual meetings, and produces structured summaries using Gemini AI."
+  />
+  <meta name="author" content="MOM Assistant Pro" />
+
+  <!-- ================= FAVICON ================= -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- ================= GOOGLE FONTS ================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- ================= TAILWIND CDN ================= -->
+  <!-- NOTE: For production at scale, replace with Tailwind build -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- ================= FONT AWESOME ================= -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-papNMwXqXGZzM0RKZ77N8BINU3CFAaj6MqFmoVoeAQMtk0iQF0EY50jYOEoTP0TO+cdMKx+3CX6Xf4Z8Yk5w5A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- ================= BASE STYLES ================= -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-    body {
-      font-family: 'Inter', sans-serif;
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+        'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+        'Helvetica Neue', sans-serif;
       background-color: #f8fafc;
     }
+
+    #root {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Prevent layout shift while React loads */
+    .app-loader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #475569;
+      font-size: 14px;
+    }
   </style>
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
-    "vite": "https://esm.sh/vite@^7.3.1",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.3"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
 </head>
+
 <body>
-  <div id="root"></div>
-  <!-- Vite will replace this with the bundled JS file. Using ./ ensures it finds the file relative to the project root. -->
-  <script type="module" src="./index.tsx"></script>
-<script type="module" src="/index.tsx"></script>
+  <!-- ================= APP ROOT ================= -->
+  <div id="root">
+    <!-- Optional loading state before React mounts -->
+    <div class="app-loader">
+      Loading MOM Assistant…
+    </div>
+  </div>
+
+  <!-- ================= VITE ENTRY ================= -->
+  <!-- IMPORTANT:
+       - This is NOT served directly in production
+       - Vite replaces it with bundled JS in /dist
+  -->
+  <script type="module" src="/index.tsx"></script>
 </body>
 </html>
