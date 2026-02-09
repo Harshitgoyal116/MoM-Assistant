@@ -1,9 +1,0 @@
-
-{
-  "name": "MOM Assistant Pro",
-  "description": "Enterprise-grade Minutes of Meeting (MOM) generator that captures system audio, transcribes multilingual conversations, and generates structured summaries using Gemini AI.",
-  "requestFramePermissions": [
-    "microphone",
-    "display-capture"
-  ]
-}
